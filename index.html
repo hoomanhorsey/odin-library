@@ -1,68 +1,79 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-    <link rel="stylesheet" href="style.css">
-    <script src="javascript.js"></script> 
-
-</head>
-<body>
-
+    <link rel="stylesheet" href="style.css" />
+    <script src="javascript.js"></script>
+  </head>
+  <body>
     <div class="container">
-    <div class="header">
+      <div class="header">
         <div class="header-text">Library</div>
+      </div>
 
-    </div>
-
-    <div class="sidebar">
-        <div class="sidebar-container" >
-        <div>
+      <div class="sidebar">
+        <div class="sidebar-container">
+          <div>
             <div class="addBook">Add New Book</div>
-        </div>
-        <div class="new-book-form">
+          </div>
+          <div class="new-book-form">
+            <form
+              action="https://httpbin.org/post"
+              method="post"
+              class="newbook"
+              autocomplete="off"
+            >
+              <div>
+                <label for="author" class="label-author">Author</label>
+                <input
+                  type="text"
+                  id="author"
+                  name="author"
+                  class="author"
+                  required
+                />
+              </div>
+              <div>
+                <label for="title" class="label-title">Title</label>
+                <input
+                  type="text"
+                  id="title"
+                  name="title"
+                  class="title"
+                  required
+                />
+              </div>
 
-            <form action="https://httpbin.org/post" method="post" class="newbook" autocomplete="off">
-    
-                <div>
-                    <label for="author" class="label-author">Author</label>
-                    <input type="text" id="author" name="author" class="author">
-                </div>
-                <div>
-                    <label for="title" class="label-title">Title</label>
-                    <input type="text" id="title" name="title" class="title">
-                </div>
-    
-                <div>
-                    <label for="pages" class="label-pages">Number of pages</label>
-                    <input type="number" id="pages" name="pages" class="pages">
-                </div>
-                
-                <div>
-                    <label for="read" class="label-read">Read status</label>
-                    <select id=read class="read">
-                        <option value="read">read</option>   
-                        <option value="unread">unread</option> 
-                    </select>
-                </div>
-    
-                <button type="submit" class="newBookBtn">Submit</button>
+              <div>
+                <label for="pages" class="label-pages">Number of pages</label>
+                <input
+                  type="number"
+                  id="pages"
+                  name="pages"
+                  class="pages"
+                  required
+                />
+              </div>
+
+              <div>
+                <label for="read" class="label-read">Read status</label>
+                <select id="read" class="read">
+                  <option value="read">read</option>
+                  <option value="unread">unread</option>
+                </select>
+              </div>
+
+              <button type="submit" class="newBookBtn">Submit</button>
             </form>
+          </div>
         </div>
-    </div>
+      </div>
 
+      <div class="library">
+        <div class="books-div">Library Contents</div>
+      </div>
     </div>
-
-    <div class="library">
- 
-        <div class="books-div">
-            Library Contents
-        </div>
-           
-    </div>
-
-    
-</div>
-</body>
+  </body>
 </html>

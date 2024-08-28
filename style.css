@@ -1,123 +1,122 @@
 * {
-    box-sizing: border-box;
-    /* border: .5px solid grey; */
+  box-sizing: border-box;
+  /* border: .5px solid grey; */
 }
 
-
-
-html, body {
-        /* margin: 0px;
+html,
+body {
+  /* margin: 0px;
     padding: 0px; */
-    display: grid;
+  display: grid;
 
-    width: 100%;
-    height: 100%;
-
+  width: 100%;
+  height: 100%;
 }
 
 .container {
-    display: grid;
-    grid-template-columns: 1fr 3fr;
-    grid-template-rows: 2fr 1fr 1fr;
-    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-    width: 100%;
-    height: 100%;
+  display: grid;
+  grid-template-columns: 1fr 3fr;
+  grid-template-rows: 2fr 1fr 1fr;
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+  width: 100%;
+  height: 100%;
 }
 .header {
-    display: grid;
-    background-color: azure;
+  display: grid;
+  background-color: azure;
 
-    grid-column: 1 / 3;
-    place-items: center;
-    padding: 30px;
+  grid-column: 1 / 3;
+  place-items: center;
+  padding: 30px;
 
-    background-image: url("bookshelfsmall.jpg");
-    
+  background-image: url("bookshelfsmall.jpg");
 }
 
 .header-text {
-    font-size: 10rem;
-    font-weight: 700;
-    text-align: center;
-    background-color: white;
-    color:cadetblue ;
-    opacity: .9;
-    border-radius: 12px;
-    padding: 15px 150px;
-    margin: 0px 350px;
-    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
-  
-
+  font-size: 10rem;
+  font-weight: 700;
+  text-align: center;
+  background-color: white;
+  color: cadetblue;
+  opacity: 0.9;
+  border-radius: 12px;
+  padding: 15px 150px;
+  margin: 0px 350px;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
 }
 
 .sidebar {
-    display: grid;
-    grid-column: 1/2;
-    grid-row: 2/4;
+  display: grid;
+  grid-column: 1/2;
+  grid-row: 2/4;
 }
 .sidebar-container {
-    background-color:rgb(241, 215, 241);
-    grid-template-rows: 1fr 6fr;
+  background-color: rgb(241, 215, 241);
+  grid-template-rows: 1fr 6fr;
 }
 
 .addBook {
-    margin: 10px;
-    padding-top: 40px ;
-    text-align: center;
-    font-size: 2rem;
-    color: cadetblue;
-    font-weight: 600;
-
+  margin: 10px;
+  padding-top: 40px;
+  text-align: center;
+  font-size: 2rem;
+  color: cadetblue;
+  font-weight: 600;
 }
 .new-book-form {
-    padding: 20px;
-    text-align: center;
+  padding: 20px;
+  text-align: center;
 }
 label {
-    padding: 4px 0px;
+  padding: 4px 0px;
 }
 
+input:invalid {
+  border: 2px dashed red;
+}
 
 input {
-    border:0px;
-    border-radius: 3px;
-    height: 1.6rem;
-    background-color: rgb(242, 237, 237);
+  border: 0px;
+  border-radius: 3px;
+  height: 1.6rem;
+  background-color: rgb(242, 237, 237);
 }
-.label-author, .label-title, .label-pages, .label-read {
-    display:block;
+.label-author,
+.label-title,
+.label-pages,
+.label-read {
+  display: block;
 }
 
 .library {
-    display: grid;
-    grid-column: 2/3;
-    grid-row: 2/4;
-    padding: 30px;
-    background-color: honeydew;
-
+  display: grid;
+  grid-column: 2/3;
+  grid-row: 2/4;
+  padding: 30px;
+  background-color: honeydew;
 }
 
 .p-book {
-    display:grid;
-    grid-template-columns: 4fr 1fr 1fr;
-    padding: 10px;
-    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  display: grid;
+  grid-template-columns: 4fr 1fr 1fr;
+  padding: 10px;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
 }
 
 .title {
-    font-style: italic;
-    font-weight: 700;
+  font-style: italic;
+  font-weight: 700;
 }
 
-.newBookBtn, .book-status-btn, .book-remove-btn {
-    color: white;
-    font-weight: 700;
-    background-color: rgb(125, 201, 224);
-    border: 1px solid rgb(125, 201, 224);
-    border-radius: 5px;
-    padding: 10px;
-    margin: 10px;
-    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
-
-    
+.newBookBtn,
+.book-status-btn,
+.book-remove-btn {
+  color: white;
+  font-weight: 700;
+  background-color: rgb(125, 201, 224);
+  border: 1px solid rgb(125, 201, 224);
+  border-radius: 5px;
+  padding: 10px;
+  margin: 10px;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
 }
