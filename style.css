@@ -74,6 +74,7 @@ label {
 input:invalid {
   border: 2px dashed red;
 }
+/* note the input arguments include 'required' which triggers this css style when the input is :invalid */
 
 input {
   border: 0px;

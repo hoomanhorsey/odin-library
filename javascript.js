@@ -42,43 +42,100 @@ document.addEventListener("DOMContentLoaded", function () {
 
   // validate form
   const form = document.querySelector("form");
-  form.addEventListener("input", (event) => {
-    console.log("input noted");
+  let n = 0;
 
-    console.log(form.author.value);
-    console.log(form.title.value);
+  // event listener triggered on user adding input
+  form.addEventListener("input", (event) => {
+    ///test input console.log print
+    n = Number(n) + 1;
+    console.log(n);
+
+    const errorSpan = document.querySelector(".error");
+    const errorDiv = document.createElement("div");
+    errorSpan.appendChild(errorDiv);
+
+    errorDiv.classList = "errorDiv";
 
     if (form.author.validity.valueMissing) {
-      console.log("invalid");
+      const previousErrorDiv = document.querySelector(".errorDiv");
+      previousErrorDiv.remove();
+      errorDiv.innerHTML = "";
+      errorDiv.innerHTML = "Author Info Missing!";
+      errorSpan.appendChild(errorDiv);
+      // client validation js built in api renders css invalid class
+    } else {
+      const previousErrorDiv = document.querySelector(".errorDiv");
+
+      previousErrorDiv.remove();
     }
   });
+
+  console.log(form);
+  const altform = document.querySelector("form");
+
+  altform.addEventListener("submit", (event) => {
+    event.preventDefault();
+
+    const formData = new FormData(event.target);
+    console.log(formData);
+
+    // Extract form data using FormData methods
+    const author = formData.get("author"); // Gets the value of the input with name 'author'
+    const title = formData.get("title"); // Gets the value of the input with name 'title'
+    const pages = formData.get("pages"); // Gets the value of the input with name 'pages'
+    const statusValue = formData.get("read"); // Gets the value of the select with name 'read'
+
+    console.log(author, title, pages, statusValue);
+
+    if (
+      !form.author.validity.valid ||
+      !form.title.validity.valid ||
+      !form.pages.validity.valid
+    ) {
+      showError();
+    } else {
+      let newBook = new Book(title, author, pages, statusValue);
+      addBookToLibrary(newBook);
+
+      // Update book display
+      displayBooks(myLibrary);
+      document.querySelector("form").reset();
+      addRemoveBtnListener();
+      addStatusBtnListener();
+    }
+  });
+  function showError() {
+    alert(
+      "I'm sorry. Your entry is incomplete.  Please fill in all fields and resubmit your entry."
+    );
+  }
 
   let newBookBtn = document.querySelector(".newBookBtn"); // New Book form submission, using querySelector rather than form submission
 
   // add new book via form
-  newBookBtn.addEventListener("click", (e) => {
-    e.preventDefault(); // Prevent default action on submission
+  // newBookBtn.addEventListener("click", (e) => {
+  //   e.preventDefault(); // Prevent default action on submission
 
-    // Gather details from form
-    let statusValue = document.querySelector(".read").value;
-    let author = document.querySelector(".author").value;
-    let title = document.querySelector(".title").value;
-    let pages = document.querySelector(".pages").value;
+  //   // Gather details from form
+  //   let statusValue = document.querySelector(".read").value;
+  //   let author = document.querySelector(".author").value;
+  //   let title = document.querySelector(".title").value;
+  //   let pages = document.querySelector(".pages").value;
 
-    if (author === "" || title === "" || pages === "") {
-      alert("Please complete all details in the form to add a new book.");
-    }
+  //   // if (author === "" || title === "" || pages === "") {
+  //   //   alert("Please complete all details in the form to add a new book.");
+  //   // }
 
-    // Create new book object and add to library array
-    let newBook = new Book(title, author, pages, statusValue);
-    addBookToLibrary(newBook);
+  //   // Create new book object and add to library array
+  //   let newBook = new Book(title, author, pages, statusValue);
+  //   addBookToLibrary(newBook);
 
-    // Update book display
-    displayBooks(myLibrary);
-    document.querySelector("form").reset();
-    addRemoveBtnListener();
-    addStatusBtnListener();
-  });
+  //   // Update book display
+  //   displayBooks(myLibrary);
+  //   document.querySelector("form").reset();
+  //   addRemoveBtnListener();
+  //   addStatusBtnListener();
+  // });
 
   // change read status
   function addStatusBtnListener() {

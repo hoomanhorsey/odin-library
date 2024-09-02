@@ -19,7 +19,9 @@
             <div class="addBook">Add New Book</div>
           </div>
           <div class="new-book-form">
+            <span class="error"></span>
             <form
+              novalidate
               action="https://httpbin.org/post"
               method="post"
               class="newbook"
@@ -59,7 +61,7 @@
 
               <div>
                 <label for="read" class="label-read">Read status</label>
-                <select id="read" class="read">
+                <select id="read" name="read" class="read">
                   <option value="read">read</option>
                   <option value="unread">unread</option>
                 </select>
